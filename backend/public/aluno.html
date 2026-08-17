@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil do Aluno - CJ Restinga</title>
+<link rel="stylesheet" href="aluno.css" />
+<script src="aluno.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ===== BOTÃO VOLTAR ===== -->
+        <a href="index.html" class="btn-voltar">← Voltar para a lista</a>
+
+        <!-- ===== PERFIL ===== -->
+        <div class="perfil">
+            <div class="avatar">?</div>
+            <div>
+                <h1>Carregando...</h1>
+                <div class="badge ativo">✅ Ativo</div>
+            </div>
+        </div>
+
+        <!-- ===== GRID DE DADOS ===== -->
+        <div class="grid">
+
+            <!-- DADOS PESSOAIS -->
+            <div class="card card-dados">
+                <div class="card-header">📋 Dados Pessoais</div>
+                <div class="card-body">
+                    <div class="linha linha-id"><span class="label">Inscrição / ID</span><span class="valor">—</span></div>
+                    <div class="linha linha-nascimento"><span class="label">Data de Nascimento</span><span class="valor">—</span></div>
+                    <div class="linha linha-telefone1"><span class="label">Telefone (Celular/Whatsapp)</span><span class="valor">—</span></div>
+                    <div class="linha linha-telefone2"><span class="label">Telefone (Recados)</span><span class="valor">—</span></div>
+                    <div class="linha linha-cpf"><span class="label">CPF</span><span class="valor">—</span></div>
+                    <div class="linha linha-rg"><span class="label">RG</span><span class="valor">—</span></div>
+                    <div class="linha linha-nis"><span class="label">NIS</span><span class="valor">—</span></div>
+                    <div class="linha linha-sus"><span class="label">SUS</span><span class="valor">—</span></div>
+                    <div class="linha linha-genero"><span class="label">Gênero</span><span class="valor">—</span></div>
+                    <div class="linha linha-etnia"><span class="label">Etnia</span><span class="valor">—</span></div>
+                    <div class="linha linha-endereco"><span class="label">Endereço</span><span class="valor">—</span></div>
+                    <div class="linha linha-bairro"><span class="label">Bairro</span><span class="valor">—</span></div>
+                    <div class="linha linha-referencia"><span class="label">Ponto Referência</span><span class="valor">—</span></div>
+                </div>
+            </div>
+
+            <!-- RESPONSÁVEL -->
+            <div class="card card-responsavel">
+                <div class="card-header">👨‍👩‍👦 Responsável</div>
+                <div class="card-body">
+                    <div class="linha linha-nome"><span class="label">Nome</span><span class="valor">—</span></div>
+                    <div class="linha linha-nascimento"><span class="label">Data de Nascimento</span><span class="valor">—</span></div>
+                    <div class="linha linha-cpf"><span class="label">CPF</span><span class="valor">—</span></div>
+                    <div class="linha linha-telefone"><span class="label">Telefone</span><span class="valor">—</span></div>
+                </div>
+            </div>
+
+            <!-- INFORMAÇÕES ESCOLARES -->
+            <div class="card card-escola">
+                <div class="card-header">🏫 Escola</div>
+                <div class="card-body">
+                    <div class="linha linha-escola"><span class="label">Escola</span><span class="valor">—</span></div>
+                    <div class="linha linha-bairro-escola"><span class="label">Bairro</span><span class="valor">—</span></div>
+                    <div class="linha linha-serie"><span class="label">Série</span><span class="valor">—</span></div>
+                    <div class="linha linha-turno-escola"><span class="label">Turno</span><span class="valor">—</span></div>
+                    <div class="linha linha-nivel"><span class="label">Nível</span><span class="valor">—</span></div>
+                </div>
+            </div>
+
+<!-- ===== MATRÍCULAS ===== -->
+<!-- ===== MATRÍCULAS ===== -->
+<div class="card card-full">
+    <div class="card-header">📚 Matrículas</div>
+    <div class="card-body">
+        <div id="listaMatriculas">
+            <!-- Lista de matrículas será renderizada aqui -->
+        </div>
+<button id="btnMatricular" class="btn-matricular" onclick="window.location.href='matricula.html?id=' + new URLSearchParams(window.location.search).get('id')">➕ Matricular em novo curso</button>
+    </div>
+</div>
+
+            <!-- OBSERVAÇÕES -->
+            <div class="card card-obs card-full">
+                <div class="card-header">📌 Observações</div>
+                <div class="card-body">
+                    <div class="linha linha-saude"><span class="label">Problema de Saúde</span><span class="valor">—</span></div>
+                    <div class="linha linha-atendimento"><span class="label">Atendimento Socioassistencial</span><span class="valor">—</span></div>
+                    <div class="linha linha-renda"><span class="label">Renda Média</span><span class="valor">—</span></div>
+                    <div class="linha linha-familia"><span class="label">Nº pessoas na casa</span><span class="valor">—</span></div>
+                    <div class="linha linha-como-soube"><span class="label">Como ficou sabendo</span><span class="valor">—</span></div>
+                    <div class="linha linha-observacoes"><span class="label">Observações</span><span class="valor">—</span></div>
+                </div>
+            </div>
+
+        </div><!-- fim grid -->
+    </div><!-- fim container -->
+
+    <!-- ===== SCRIPTS ===== -->
+
+</body>
+</html>

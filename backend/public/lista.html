@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Alunos - CJ Restinga</title>
+<link rel="stylesheet" href="lista.css" />
+<script src="lista.js"></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ===== TÍTULO E AÇÕES ===== -->
+        <div class="topo">
+            <h1>📋 Lista de Alunos</h1>
+            <a href="aluno.html" class="btn-adicionar">+ Novo Aluno</a>
+        </div>
+
+        <!-- ===== BUSCA ===== -->
+        <div class="busca-container">
+            <input type="text" id="campoBusca" placeholder="🔍 Buscar por ID, Nome ou CPF..." oninput="filtrarAlunos()" />
+            <span class="contador" id="contador">0 alunos</span>
+        </div>
+
+        <!-- ===== TABELA ===== -->
+        <div class="tabela-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Telefone</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela">
+                    <!-- Os dados serão inseridos aqui via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ===== MENSAGEM QUANDO NÃO HÁ RESULTADOS ===== -->
+        <div id="mensagemVazia" class="mensagem-vazia" style="display:none;">
+            Nenhum aluno encontrado.
+        </div>
+
+    </div>
+
+</body>
+</html>

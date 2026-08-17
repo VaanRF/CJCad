@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matricular Aluno - CJ Restinga</title>
+    <link rel="stylesheet" href="matricula.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Matricular em Curso</h1>
+        <form id="formMatricula">
+            <div class="campo">
+                <label for="curso">Curso:</label>
+                <select id="curso" required>
+                    <option value="">Selecione um curso</option>
+                    <!-- Opções preenchidas pelo JavaScript -->
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="dia">Dia da semana:</label>
+                <select id="dia" required>
+                    <option value="segunda">Segunda-feira</option>
+                    <option value="terca">Terça-feira</option>
+                    <option value="quarta">Quarta-feira</option>
+                    <option value="quinta">Quinta-feira</option>
+                    <option value="sexta">Sexta-feira</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="horario">Horário:</label>
+                <select id="horario" required>
+                    <option value="08:30 – 10:00">08:30 – 10:00</option>
+                    <option value="10:15 – 11:45">10:15 – 11:45</option>
+                    <option value="13:30 – 15:00">13:30 – 15:00</option>
+                    <option value="15:15 – 16:45">15:15 – 16:45</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="status">Status:</label>
+                <select id="status" required>
+                    <option value="Matriculado">Matriculado</option>
+                    <option value="Concluído">Concluído</option>
+                    <option value="Aguardando">Aguardando</option>
+                    <option value="Cancelado">Cancelado</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-salvar">✅ Salvar Matrícula</button>
+            <a href="aluno.html" class="btn-cancelar">Cancelar</a>
+        </form>
+    </div>
+
+    <script src="matricula.js"></script>
+</body>
+</html>

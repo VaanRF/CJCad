@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turmas de Informática - CJ Restinga</title>
+    <link rel="stylesheet" href="turma-informatica.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="topo">
+            <h1>💻 Turmas de Informática</h1>
+            <a href="index.html" class="btn-voltar">← Voltar para Lista</a>
+        </div>
+
+        <!-- Navegação por dias -->
+        <div class="nav-dias">
+            <button class="dia-btn ativo" data-dia="segunda">Segunda</button>
+            <button class="dia-btn" data-dia="terca">Terça</button>
+            <button class="dia-btn" data-dia="quarta">Quarta</button>
+            <button class="dia-btn" data-dia="quinta">Quinta</button>
+            <button class="dia-btn" data-dia="sexta">Sexta</button>
+        </div>
+
+        <!-- Grade de Horários -->
+        <div id="gradeHorarios" class="grade-container">
+            <!-- Os horários e alunos serão inseridos aqui pelo JavaScript -->
+        </div>
+    </div>
+    <script src="turma-informatica.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef2f7;
+    padding: 30px 20px;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 35px 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+/* ===== BOTÃO VOLTAR ===== */
+.btn-voltar {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background: #f0f3f8;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    background: #e2e8f0;
+}
+
+/* ===== PERFIL ===== */
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 2px solid #e9edf4;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #2c3e50;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.perfil h1 {
+    font-size: 26px;
+    color: #1e293b;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 30px;
+    margin-top: 4px;
+}
+
+.badge.ativo {
+    background: #d4edda;
+    color: #0b5e2e;
+}
+
+/* ===== GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.card-full {
+    grid-column: span 2;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: #f8faff;
+    border-radius: 20px;
+    border: 1px solid #e9edf4;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.card:hover {
+    border-color: #cdd9e6;
+}
+
+.card-header {
+    background: #f1f5f9;
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #1e293b;
+    border-bottom: 1px solid #e9edf4;
+    letter-spacing: 0.3px;
+}
+
+.card-body {
+    padding: 18px 20px;
+}
+
+/* ===== LINHAS ===== */
+.linha {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px dashed #edf2f7;
+}
+
+.linha:last-child {
+    border-bottom: none;
+}
+
+.label {
+    width: 160px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.valor {
+    flex: 1;
+    font-size: 15px;
+    color: #0f172a;
+    font-weight: 500;
+}
+
+/* ===== BADGES DE STATUS DOS CURSOS ===== */
+.badge.status {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 14px;
+    border-radius: 30px;
+    background: #e9edf4;
+    color: #1e293b;
+}
+
+.status.matriculado {
+    background: #d4edda;
+    color: #0b5e2e;
+}
+
+.status.concluido {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.status.espera {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.avisado {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 700px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-full {
+        grid-column: span 1;
+    }
+
+    .container {
+        padding: 20px 16px;
+    }
+
+    .perfil {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .linha {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .label {
+        width: 100%;
+    }
+}

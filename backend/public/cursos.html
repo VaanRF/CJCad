@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursos por Dia - CJ Restinga</title>
+    <link rel="stylesheet" href="cursos.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <div class="topo">
+            <h1>📚 Cursos do CJ</h1>
+            <a href="lista.html" class="btn-voltar">← Voltar para Lista</a>
+        </div>
+
+        <!-- Navegação por dias -->
+        <div class="nav-dias">
+            <button class="dia-btn" data-dia="segunda">Segunda</button>
+            <button class="dia-btn" data-dia="terca">Terça</button>
+            <button class="dia-btn" data-dia="quarta">Quarta</button>
+            <button class="dia-btn" data-dia="quinta">Quinta</button>
+            <button class="dia-btn" data-dia="sexta">Sexta</button>
+        </div>
+
+        <!-- Título do dia -->
+        <h2 id="tituloDia" class="dia-titulo">Segunda-feira</h2>
+
+        <!-- Grade de cursos -->
+        <div class="grade-container">
+            <!-- Manhã -->
+            <div class="turno">
+                <h3>🌅 Manhã</h3>
+                <div id="containerManha" class="blocos-horario">
+                    <!-- Preenchido pelo JavaScript -->
+                </div>
+            </div>
+
+            <!-- Tarde -->
+            <div class="turno">
+                <h3>🌆 Tarde</h3>
+                <div id="containerTarde" class="blocos-horario">
+                    <!-- Preenchido pelo JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cursos.js"></script>
+</body>
+</html>

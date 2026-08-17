@@ -1,0 +1,18 @@
+{
+  "cursos": [
+    { "id": 1, "nome": "INFO - JM", "tipo": "Profissionalizante" },
+    { "id": 2, "nome": "INFO - BÁSICO", "tipo": "Profissionalizante" },
+    { "id": 3, "nome": "INFO - AVANÇADO", "tipo": "Profissionalizante" },
+    { "id": 4, "nome": "ROBÓTICA INTRODUÇÃO", "tipo": "Profissionalizante" },
+    { "id": 5, "nome": "ROBÓTICA AVANÇADO", "tipo": "Profissionalizante" },
+    { "id": 6, "nome": "GASTRONOMIA", "tipo": "Profissionalizante" },
+    { "id": 7, "nome": "ADM - JM", "tipo": "Profissionalizante" },
+    { "id": 8, "nome": "ADM - BÁSICO", "tipo": "Profissionalizante" },
+    { "id": 9, "nome": "ADM - AVANÇADO", "tipo": "Profissionalizante" },
+    { "id": 10, "nome": "LAZER E BEM ESTAR", "tipo": "Socioeducativo" },
+    { "id": 11, "nome": "E.A.C", "tipo": "Socioeducativo" },
+    { "id": 12, "nome": "E.A.C MÚSICA", "tipo": "Socioeducativo" },
+    { "id": 13, "nome": "BARBEARIA", "tipo": "Profissionalizante" },
+    { "id": 14, "nome": "CÍRCULO DE PAZ", "tipo": "Socioeducativo" }
+  ]
+}

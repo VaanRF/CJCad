@@ -1,0 +1,185 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef2f7;
+    padding: 30px 20px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 35px 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== TOPO ===== */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.topo h1 {
+    font-size: 26px;
+    color: #1e293b;
+}
+
+.btn-voltar {
+    padding: 8px 20px;
+    background: #2c3e50;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    background: #1a252f;
+}
+
+/* ===== NAVEGAÇÃO ===== */
+.nav-dias {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.dia-btn {
+    padding: 10px 24px;
+    background: #f1f5f9;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #1e293b;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dia-btn:hover {
+    background: #e2e8f0;
+}
+
+.dia-btn.ativo {
+    background: #2c3e50;
+    color: #fff;
+    border-color: #2c3e50;
+}
+
+/* ===== TÍTULO ===== */
+.dia-titulo {
+    font-size: 24px;
+    color: #1e293b;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9edf4;
+}
+
+/* ===== GRADE ===== */
+.grade-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.turno h3 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e9edf4;
+}
+
+.blocos-horario {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bloco-horario {
+    background: #f8faff;
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid #e9edf4;
+}
+
+.horario-titulo {
+    font-weight: 700;
+    font-size: 14px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed #dce1e9;
+}
+
+.lista-cursos {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-cursos li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.lista-cursos li:last-child {
+    border-bottom: none;
+}
+
+.curso-nome {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.curso-tipo {
+    font-size: 11px;
+    background: #e2e8f0;
+    padding: 2px 12px;
+    border-radius: 20px;
+    color: #475569;
+    white-space: nowrap;
+}
+
+.vazio {
+    color: #94a3b8;
+    font-style: italic;
+    padding: 12px 0;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 700px) {
+    .container {
+        padding: 20px 16px;
+    }
+
+    .grade-container {
+        grid-template-columns: 1fr;
+    }
+
+    .topo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .nav-dias {
+        justify-content: center;
+    }
+}
