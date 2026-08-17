@@ -10,7 +10,7 @@ app.use(express.static('public'));
 app.use(cors());
 app.use(express.json());
 
-const arquivoDados = './dados/alunos.json';
+const arquivoDados = 'backend/dados/alunos.json';
 
 function lerAlunos() {
     const dados = fs.readFileSync(arquivoDados, 'utf-8');
