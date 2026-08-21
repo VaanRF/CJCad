@@ -1,5 +1,5 @@
 // ===== URL DA API =====
-const API_URL = '';
+const API_URL = 'https://cjcad.onrender.com';
 
 // ===== DIAS E HORÁRIOS =====
 const dias = ['segunda', 'terca', 'quarta', 'quinta', 'sexta'];

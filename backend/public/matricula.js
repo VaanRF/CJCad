@@ -1,5 +1,5 @@
 // ===== URL DA API (VAZIA = MESMA ORIGEM) =====
-const API_URL = '';
+const API_URL = 'https://cjcad.onrender.com';
 
 // ===== PEGA O ID DO ALUNO DA URL =====
 function getParametro(nome) {

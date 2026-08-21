@@ -1,5 +1,5 @@
 // ===== URL DA API =====
-const API_URL = ''; // Vazio, usa a mesma origem
+const API_URL = 'https://cjcad.onrender.com'; // Vazio, usa a mesma origem
 
 fetch('/alunos') // Em vez de fetch('https://.../alunos')
 

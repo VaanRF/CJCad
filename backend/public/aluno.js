@@ -1,5 +1,5 @@
 // ===== URL DA API =====
-const API_URL = '';
+const API_URL = 'https://cjcad.onrender.com';
 
 // ===== PEGA O ID DA URL =====
 function getParametro(nome) {
@@ -126,7 +126,7 @@ function carregarAluno() {
 
     console.log('📡 Buscando aluno:', `/alunos/${id}`);
 
-    fetch(`/alunos/${id}`)
+    fetch(`${API_URL}/alunos/${id}`)
         .then(response => {
             console.log('📥 Status da resposta:', response.status);
             if (!response.ok) {

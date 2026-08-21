@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef2f7;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    color: #1e293b;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #dce1e9;
+    border-radius: 12px;
+    font-size: 15px;
+    background-color: #f8faff;
+    color: #1e293b;
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #2c3e50;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.15);
+}
+
+.btn-salvar {
+    width: 100%;
+    padding: 14px;
+    background: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-salvar:hover {
+    background: #1a252f;
+    transform: scale(1.02);
+}
+
+.btn-cancelar {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    color: #7f8c8d;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-cancelar:hover {
+    color: #e74c3c;
+}
+
+#mensagem {
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.mensagem-sucesso {
+    color: #0b5e2e;
+    background: #d4edda;
+}
+
+.mensagem-erro {
+    color: #721c24;
+    background: #f8d7da;
+}
