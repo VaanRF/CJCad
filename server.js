@@ -5,15 +5,11 @@ const path = require('path');
 const basicAuth = require('express-basic-auth');
 
 const app = express();
-
-// ===== CONFIGURAÇÃO PARA O RENDER (USA A PORTA CORRETA) =====
 const port = process.env.PORT || 3000;
 
-// ===== MIDDLEWARES GERAIS =====
+// ===== MIDDLEWARES =====
 app.use(cors());
 app.use(express.json());
-
-// ===== SERVE O FRONTEND (PASTA PUBLIC) =====
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ===== ROTA RAIZ (SEM AUTENTICAÇÃO) =====
@@ -22,19 +18,45 @@ app.get('/', (req, res) => {
 });
 
 // ===== AUTENTICAÇÃO APENAS PARA A API =====
-const usuarios = {
-    'admin': '123123',
-};
+const usuarios = { 'admin': '123123' };
 app.use('/alunos', basicAuth({
     users: usuarios,
     challenge: true,
     unauthorizedResponse: '❌ Acesso negado.'
 }));
 
-// ===== FUNÇÕES DE LEITURA/ESCRITA DO JSON =====
+// ===== CAMINHO DO BANCO DE DADOS =====
 const arquivoDados = path.join(__dirname, 'dados', 'alunos.json');
 
+// ===== FUNÇÃO PARA GARANTIR QUE O ARQUIVO EXISTA =====
+function inicializarArquivo() {
+    const pasta = path.dirname(arquivoDados);
+    if (!fs.existsSync(pasta)) {
+        fs.mkdirSync(pasta, { recursive: true });
+        console.log(`📁 Pasta criada: ${pasta}`);
+    }
+
+    if (!fs.existsSync(arquivoDados)) {
+        fs.writeFileSync(arquivoDados, JSON.stringify([], null, 2));
+        console.log(`📄 Arquivo criado: ${arquivoDados}`);
+    } else {
+        const conteudo = fs.readFileSync(arquivoDados, 'utf-8');
+        if (!conteudo || conteudo.trim() === '') {
+            fs.writeFileSync(arquivoDados, JSON.stringify([], null, 2));
+            console.log(`📄 Arquivo recriado (estava vazio): ${arquivoDados}`);
+        } else {
+            try {
+                JSON.parse(conteudo);
+            } catch (e) {
+                fs.writeFileSync(arquivoDados, JSON.stringify([], null, 2));
+                console.log(`📄 Arquivo recriado (estava corrompido): ${arquivoDados}`);
+            }
+        }
+    }
+}
+
 function lerAlunos() {
+    inicializarArquivo();
     const dados = fs.readFileSync(arquivoDados, 'utf-8');
     return JSON.parse(dados);
 }
@@ -43,11 +65,7 @@ function escreverAlunos(alunos) {
     fs.writeFileSync(arquivoDados, JSON.stringify(alunos, null, 2));
 }
 
-// =============================================
-// ===== ROTAS DA API (TODAS COM AUTENTICAÇÃO) =====
-// =============================================
-
-// ===== LISTAR TODOS =====
+// ===== ROTAS DA API =====
 app.get('/alunos', (req, res) => {
     try {
         const alunos = lerAlunos();
@@ -57,7 +75,6 @@ app.get('/alunos', (req, res) => {
     }
 });
 
-// ===== BUSCAR POR ID =====
 app.get('/alunos/:id', (req, res) => {
     try {
         const alunos = lerAlunos();
@@ -70,7 +87,6 @@ app.get('/alunos/:id', (req, res) => {
     }
 });
 
-// ===== ADICIONAR =====
 app.post('/alunos', (req, res) => {
     try {
         const alunos = lerAlunos();
@@ -85,7 +101,6 @@ app.post('/alunos', (req, res) => {
     }
 });
 
-// ===== EDITAR =====
 app.put('/alunos/:id', (req, res) => {
     try {
         const alunos = lerAlunos();
@@ -101,7 +116,6 @@ app.put('/alunos/:id', (req, res) => {
     }
 });
 
-// ===== ALTERAR STATUS =====
 app.patch('/alunos/:id/status', (req, res) => {
     try {
         const alunos = lerAlunos();
@@ -117,7 +131,6 @@ app.patch('/alunos/:id/status', (req, res) => {
     }
 });
 
-// ===== REMOVER =====
 app.delete('/alunos/:id', (req, res) => {
     try {
         const alunos = lerAlunos();
@@ -132,15 +145,12 @@ app.delete('/alunos/:id', (req, res) => {
     }
 });
 
-// ===== MATRICULAR =====
 app.post('/alunos/:id/matricular', (req, res) => {
     try {
         const alunos = lerAlunos();
         const id = req.params.id;
         const index = alunos.findIndex(a => String(a.FIELD1) === String(id));
-        if (index === -1) {
-            return res.status(404).json({ erro: 'Aluno não encontrado' });
-        }
+        if (index === -1) return res.status(404).json({ erro: 'Aluno não encontrado' });
         const novaMatricula = req.body;
         if (!alunos[index].matriculas) {
             alunos[index].matriculas = [];
@@ -149,15 +159,12 @@ app.post('/alunos/:id/matricular', (req, res) => {
         escreverAlunos(alunos);
         res.json({ mensagem: 'Matrícula realizada com sucesso!', aluno: alunos[index] });
     } catch (error) {
-        console.error('Erro ao matricular:', error);
         res.status(500).json({ erro: 'Erro ao matricular aluno' });
     }
 });
 
-// =============================================
 // ===== INICIA O SERVIDOR =====
 app.listen(port, () => {
     console.log(`🚀 Servidor rodando em http://localhost:${port}`);
     console.log(`📁 Dados salvos em: ${arquivoDados}`);
-    console.log(`🌐 Frontend disponível em http://localhost:${port}/`);
 });
