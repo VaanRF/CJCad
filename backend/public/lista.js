@@ -1,7 +1,10 @@
 // ===== URL DA API =====
-const API_URL = 'https://cjcad.onrender.com'; // Vazio, usa a mesma origem
+const API_URL = 'https://cjcad.onrender.com';
 
-fetch('/alunos') // Em vez de fetch('https://.../alunos')
+// ===== CREDENCIAIS PARA AUTENTICAÇÃO =====
+const USUARIO = 'admin';
+const SENHA = '123123';
+const authHeader = 'Basic ' + btoa(`${USUARIO}:${SENHA}`);
 
 let alunos = [];
 
@@ -9,30 +12,35 @@ let alunos = [];
 function carregarAlunos() {
     console.log('1️⃣ Iniciando carregamento dos alunos...');
     
-    fetch(`${API_URL}/alunos`)
-        .then(response => {
-            console.log('2️⃣ Resposta recebida da API. Status:', response.status);
-            if (!response.ok) {
-                throw new Error(`Erro HTTP: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('3️⃣ Dados recebidos. Total de alunos:', data.length);
-            alunos = data;
-            renderizarTabela(alunos);
-        })
-        .catch(error => {
-            console.error('4️⃣ ERRO ao carregar alunos:', error.message);
-            console.error('Erro completo:', error);
-            document.getElementById('corpoTabela').innerHTML = `
-                <tr><td colspan="5" style="text-align:center; color:#e74c3c;">
-                    ⚠️ Erro ao carregar os dados. Verifique se o servidor está rodando.
-                    <br><small>${error.message}</small>
-                </td></tr>
-            `;
-            document.getElementById('contador').textContent = '0 alunos';
-        });
+    // 🔑 ADICIONEI O CABEÇALHO DE AUTORIZAÇÃO AQUI!
+    fetch(`${API_URL}/alunos`, {
+        headers: {
+            'Authorization': authHeader
+        }
+    })
+    .then(response => {
+        console.log('2️⃣ Resposta recebida da API. Status:', response.status);
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('3️⃣ Dados recebidos. Total de alunos:', data.length);
+        alunos = data;
+        renderizarTabela(alunos);
+    })
+    .catch(error => {
+        console.error('4️⃣ ERRO ao carregar alunos:', error.message);
+        console.error('Erro completo:', error);
+        document.getElementById('corpoTabela').innerHTML = `
+            <tr><td colspan="5" style="text-align:center; color:#e74c3c;">
+                ⚠️ Erro ao carregar os dados. Verifique se o servidor está rodando.
+                <br><small>${error.message}</small>
+            </td></tr>
+        `;
+        document.getElementById('contador').textContent = '0 alunos';
+    });
 }
 
 // ===== FUNÇÃO PARA RENDERIZAR A TABELA =====

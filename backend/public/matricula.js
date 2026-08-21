@@ -1,6 +1,11 @@
 // ===== URL DA API (VAZIA = MESMA ORIGEM) =====
 const API_URL = 'https://cjcad.onrender.com';
 
+fetch(`${API_URL}/alunos`, {
+    headers: {
+        'Authorization': 'Basic ' + btoa('admin:123123')
+    }
+})
 // ===== PEGA O ID DO ALUNO DA URL =====
 function getParametro(nome) {
     const urlParams = new URLSearchParams(window.location.search);

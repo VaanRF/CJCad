@@ -1,6 +1,11 @@
 // ===== URL DA API =====
 const API_URL = 'https://cjcad.onrender.com';
 
+// ===== CREDENCIAIS PARA AUTENTICAÇÃO =====
+const USUARIO = 'admin';
+const SENHA = '123123';
+const authHeader = 'Basic ' + btoa(`${USUARIO}:${SENHA}`);
+
 // ===== PEGA O ID DA URL =====
 function getParametro(nome) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -17,7 +22,7 @@ function setValor(seletor, valor) {
     }
 }
 
-// ===== EXIBE AS MATRÍCULAS (DEFINIDA ANTES DE SER CHAMADA) =====
+// ===== EXIBE AS MATRÍCULAS =====
 function exibirMatriculas(matriculas) {
     const container = document.getElementById('listaMatriculas');
     if (!container) {
@@ -106,7 +111,7 @@ function preencherPagina(aluno) {
     setValor('.card-obs .linha-como-soube .valor', aluno.FIELD41);
     setValor('.card-obs .linha-observacoes .valor', aluno.FIELD43);
 
-    // ===== MATRÍCULAS (AGORA A FUNÇÃO JÁ ESTÁ DEFINIDA) =====
+    // ===== MATRÍCULAS =====
     exibirMatriculas(aluno.matriculas);
 }
 
@@ -124,29 +129,34 @@ function carregarAluno() {
         return;
     }
 
-    console.log('📡 Buscando aluno:', `/alunos/${id}`);
+    console.log('📡 Buscando aluno:', `${API_URL}/alunos/${id}`);
 
-    fetch(`${API_URL}/alunos/${id}`)
-        .then(response => {
-            console.log('📥 Status da resposta:', response.status);
-            if (!response.ok) {
-                throw new Error(`Erro HTTP: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(aluno => {
-            console.log('✅ Aluno encontrado:', aluno);
-            preencherPagina(aluno);
-        })
-        .catch(error => {
-            console.error('❌ Erro ao carregar aluno:', error);
-            document.querySelector('.container').innerHTML = `
-                <h1 style="color:#e74c3c;">⚠️ Aluno não encontrado</h1>
-                <p>Erro ao buscar o aluno com ID ${id}.</p>
-                <p><small>${error.message}</small></p>
-                <a href="index.html" class="btn-voltar">← Voltar para a lista</a>
-            `;
-        });
+    // 🔑 REQUISIÇÃO COM AUTENTICAÇÃO
+    fetch(`${API_URL}/alunos/${id}`, {
+        headers: {
+            'Authorization': authHeader
+        }
+    })
+    .then(response => {
+        console.log('📥 Status da resposta:', response.status);
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(aluno => {
+        console.log('✅ Aluno encontrado:', aluno);
+        preencherPagina(aluno);
+    })
+    .catch(error => {
+        console.error('❌ Erro ao carregar aluno:', error);
+        document.querySelector('.container').innerHTML = `
+            <h1 style="color:#e74c3c;">⚠️ Aluno não encontrado</h1>
+            <p>Erro ao buscar o aluno com ID ${id}.</p>
+            <p><small>${error.message}</small></p>
+            <a href="index.html" class="btn-voltar">← Voltar para a lista</a>
+        `;
+    });
 }
 
 // ===== REDIRECIONA PARA O FORMULÁRIO DE MATRÍCULA =====
